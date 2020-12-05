@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
+import MyHeader from '../components/MyHeaders'
 class Home extends Component {
   render() {
     return (
         <div className="list-books">
-          <div className="list-books-title">
-            <h1>MyReads</h1>
-          </div>
+            <MyHeader title="MyReads"/>
           <div className="list-books-content">
             <div>
               <div className="bookshelf">
