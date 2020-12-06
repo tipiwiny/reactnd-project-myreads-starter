@@ -8,7 +8,7 @@ const MyBookShelf = ({title, books = [], clickOnBook}) => (<div className="books
 <div className="bookshelf-books">
   <ol className="books-grid">
       {
-         books.length ? <ol className="books-grid">{books.map(book => (<MyBook key={book.id} id={book.id} title={book.title} clickOnSelect={clickOnBook} selected={book.value} author={book.authors ? book.authors.join(): ''} imageURL={book.imageLinks ? book.imageLinks.thumbnail : undefined}/>))}</ol> :
+         books.length ? <ol className="books-grid">{books.map(book => (<MyBook key={book.id} id={book.id} title={book.title} clickOnSelect={clickOnBook} selected={book.shelf} author={book.authors ? book.authors.join(): ''} imageURL={book.imageLinks ? book.imageLinks.thumbnail : undefined}/>))}</ol> :
             <div>You dont have books in the shelf</div>
       }
     <li>

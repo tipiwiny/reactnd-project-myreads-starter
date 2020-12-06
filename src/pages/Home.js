@@ -15,9 +15,9 @@ class Home extends Component {
   }
   render() {
     const {books, clickOnBook} = this.props
-    const readBooks = books.filter(book => book.value === 'read')
-    const readingBooks = books.filter(book => book.value === 'currentlyReading')
-    const wishBooks = books.filter(book => book.value === 'wantToRead')
+    const readBooks = books.filter(book => book.shelf === 'read')
+    const readingBooks = books.filter(book => book.shelf === 'currentlyReading')
+    const wishBooks = books.filter(book => book.shelf === 'wantToRead')
 
     return (
         <div className="list-books">
