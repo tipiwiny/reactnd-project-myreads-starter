@@ -39,5 +39,9 @@ MyBook.propTypes = {
         }
       }
   };
+
+  MyBook.defaultProps = {
+      imageURL: 'https://blog.wildix.com/wp-content/uploads/2020/06/react-logo.jpg'
+  }
   
 export default MyBook;
