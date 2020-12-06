@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
+
 import MyBook from '../components/MyBook'
-import * as BooksAPI from './../BooksAPI'
+import * as BooksAPI from '../BooksAPI'
 class Library extends Component {
     state = {
         books: [],
@@ -31,7 +33,15 @@ class Library extends Component {
     return (
         <div className="search-books">
           <div className="search-books-bar">
-            <button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</button>
+            <Route render={({ history}) => (
+                <button
+                type='button'
+                className="close-search"
+                onClick={() => { history.push('/') }}
+              >
+                Click Me!
+              </button>
+            )} />
             <div className="search-books-input-wrapper">
               <input type="text" placeholder="Search by title or author" value={query} onChange={async (event) => {this.setState({ query: event.target.value}); this.updateQuery(event.target.value)}}/>
 
