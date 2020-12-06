@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
-const MyBook = ({title, author, imageURL}) => (
+const MyBook = ({title, author, imageURL, id, clickOnSelect, selected}) => (
     <div className="book">
       <div className="book-top">
-        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${imageURL})`}}></div>
+        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${imageURL ? imageURL : 'https://blog.wildix.com/wp-content/uploads/2020/06/react-logo.jpg'})`}}></div>
         <div className="book-shelf-changer">
-          <select>
+          <select onChange={(e) => clickOnSelect(id, e.target.value)} value={selected}>
             <option value="move" disabled>Move to...</option>
             <option value="currentlyReading">Currently Reading</option>
             <option value="wantToRead">Want to Read</option>
@@ -23,6 +23,7 @@ const MyBook = ({title, author, imageURL}) => (
 
 MyBook.propTypes = {
     title: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     imageURL: function(props, propName, componentName) {
         const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
@@ -37,7 +38,8 @@ MyBook.propTypes = {
             ' `' + componentName + '`. URL not valid'
           );
         }
-      }
+      },
+    clickOnSelect: PropTypes.func.isRequired
   };
 
   MyBook.defaultProps = {

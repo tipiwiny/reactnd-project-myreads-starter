@@ -10,29 +10,23 @@ class Home extends Component {
     readBooks: [],
     wishBooks: []
   }
-  addBooktoList(list, book) {
-    this.setState((previousState) => ({
-      [list] : previousState[list].push(book)
-    }))
-  }
-  removeBooktoList(list, id) {
-    this.setState((previousState) => ({
-      [list] : previousState[list].filters(book => book.id !== id)
-    }))
-  }
   handleClick() {
     this.history.push("/home");
   }
   render() {
-    const {readBooks, readingBooks, wishBooks} = this.state
+    const {books, clickOnBook} = this.props
+    const readBooks = books.filter(book => book.value === 'read')
+    const readingBooks = books.filter(book => book.value === 'currentlyReading')
+    const wishBooks = books.filter(book => book.value === 'wantToRead')
+
     return (
         <div className="list-books">
             <MyHeader title="MyReads"/>
           <div className="list-books-content">
             <div>
-                <MyBookShelf title="Currently Reading" books={readingBooks}/>
-                <MyBookShelf title="Want to Read" books={wishBooks}/>
-                <MyBookShelf title="Read" books={readBooks}/>
+                <MyBookShelf title="Currently Reading" books={readingBooks} clickOnBook={clickOnBook}/>
+                <MyBookShelf title="Want to Read" books={wishBooks} clickOnBook={clickOnBook}/>
+                <MyBookShelf title="Read" books={readBooks} clickOnBook={clickOnBook}/>
             </div>
           </div>
           <div className="open-search">

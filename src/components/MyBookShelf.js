@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import MyBook from './MyBook'
 
 
-const MyBookShelf = ({title, books = []}) => (<div className="bookshelf">
+const MyBookShelf = ({title, books = [], clickOnBook}) => (<div className="bookshelf">
 <h2 className="bookshelf-title">{title}</h2>
 <div className="bookshelf-books">
   <ol className="books-grid">
       {
-         books.length ? <ol className="books-grid">{books.map(book => (<MyBook key={book.id} title={book.title} author={book.authors ? book.authors.join(): ''} imageURL={book.imageLinks ? book.imageLinks.thumbnail : undefined}/>))}</ol> :
+         books.length ? <ol className="books-grid">{books.map(book => (<MyBook key={book.id} id={book.id} title={book.title} clickOnSelect={clickOnBook} selected={book.value} author={book.authors ? book.authors.join(): ''} imageURL={book.imageLinks ? book.imageLinks.thumbnail : undefined}/>))}</ol> :
             <div>You dont have books in the shelf</div>
       }
     <li>
