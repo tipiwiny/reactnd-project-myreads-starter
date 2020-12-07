@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 
 import MyBookShelf from '../components/MyBookShelf'
-import MyHeader from '../components/MyHeaders'
+import MyHeader from '../components/MyHeaders' 
 class Home extends Component {
 
   state = {
