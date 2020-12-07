@@ -29,6 +29,7 @@ class BooksApp extends React.Component {
               const filterLibrary = result.map( b=> {
                 const existBook = this.state.myBooks.find(mb => mb.id ===b.id)
                 if(existBook) b.shelf = existBook.shelf
+                else b.shelf ='none'
                 return b
               })
               this.setState({library:filterLibrary, error: false})

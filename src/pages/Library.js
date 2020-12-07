@@ -5,7 +5,7 @@ import MyBook from '../components/MyBook'
 class Library extends Component {
     renderBooks() {
         const { books,error, query, clickOnBook } = this.props
-        let renderedBooks = <ol className="books-grid">{books.map(book => (<MyBook key={book.id} id={book.id} selected={book.value} clickOnSelect={clickOnBook}title={book.title} author={book.authors ? book.authors.join(): ''} imageURL={book.imageLinks ? book.imageLinks.thumbnail : undefined}/>))}</ol>
+        let renderedBooks = <ol className="books-grid">{books.map(book => (<MyBook key={book.id} id={book.id} selected={book.shelf} clickOnSelect={clickOnBook}title={book.title} author={book.authors ? book.authors.join(): ''} imageURL={book.imageLinks ? book.imageLinks.thumbnail : undefined}/>))}</ol>
         if(error) renderedBooks = <div>Error in the search</div>
         if(books.length === 0 && query) renderedBooks = <div> Result not found</div>
         if(!query) renderedBooks = <div> Type any search</div>
